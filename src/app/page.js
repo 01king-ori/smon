@@ -1,113 +1,129 @@
-import {  Heart, TreePine, Shield, ClipboardCopy } from 'lucide-react';
+"use client";
+import { Heart, TreePine, Shield, ClipboardCopy, FileText, LayoutDashboard } from 'lucide-react';
+import Link from 'next/link';
+import { useState } from 'react';
 
-export default function Home() {
-  const coreValues = ['Integrity', 'Professionalism', 'Respect for diversity', 'Accountability', 'Team work', 'Non-violence', 'Justice'];
+export default function HomePage() {
+  const [activeLink, setActiveLink] = useState('/');
   
+  const coreValues = [
+    'Integrity', 'Professionalism', 'Respect for diversity', 
+    'Accountability', 'Teamwork', 'Non-violence', 'Justice'
+  ];
+
   const capacities = [
-    { title: 'Research and development', description: 'Social Metrics Organisation personnel have vast experience designing and employing systematic qualitative and quantitative research methodologies.' },
-    { title: 'Food sovereignty', description: 'Vast practical experience in food independence interventions including sustainable agri-actions via innovative agri-technology.' },
+    { title: 'Research and development', description: 'Expertise in systematic research methodologies.' },
+    { title: 'Food sovereignty', description: 'Practical experience in sustainable agriculture.' },
     { title: 'Peaceful and inclusive society', description: 'Expertise in gender and child protection services in conflict and post-conflict countries.' },
     { title: 'Sustainable environment action', description: 'Well-versed in ecological conservation using environmentally safe models (Reduce, Reuse, Recycle).' },
     { title: 'Business process model', description: 'Well trained on CaLP platforms in cash transfer and voucher programs.' },
     { title: 'Protection and safeguarding', description: 'Embraces inclusivity and diversity with zero tolerance for sexual abuse and exploitation.' }
   ];
 
+  const navigationItems = [
+    { href: '/', label: 'Home', icon: ClipboardCopy },
+    { href: '/complaints', label: 'Complaints', icon: FileText },
+    { href: '/code_of_conduct', label: 'Code of Conduct', icon: Shield },
+    { href: '/safeguarding', label: 'Safeguarding', icon: Heart },
+    { href: '/whistleblowing', label: 'Whistleblowing', icon: TreePine }
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-100">
-      <header className="bg-gradient-to-r from-blue-900 to-gray-800 text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">Social Metrics Organisation</h1>
-          <p className="text-xl">Time-based delivery of results and reports for decision making</p>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 py-8">
-        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-2xl font-bold mb-4">Organization Profile</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <p><strong>Name:</strong> SOCIAL METRICS ORGANISATION (SMO)</p>
-              <p><strong>Type:</strong> National Non-Governmental</p>
-              <p><strong>Registration:</strong> RRC #2996 (2020)</p>
-            </div>
-            <div>
-              <p><strong>Location:</strong> South Sudan</p>
-              <p><strong>Address:</strong> Off Unity Road, Hai Malakal, Juba</p>
-              <p><strong>Contact:</strong> +211922189467 | smo.org.ssd@gmail.com</p>
-            </div>
-          </div>
+    <div className="flex min-h-screen bg-gray-50">
+      {/* Enhanced Sidebar Navigation */}
+      <nav className="w-72 bg-gradient-to-b from-blue-900 to-blue-800 text-white p-8 flex flex-col space-y-8 shadow-xl relative">
+        <div className="absolute inset-0 bg-blue-900 opacity-50 backdrop-blur-lg"></div>
+        
+        {/* Logo Section */}
+        <div className="relative z-10">
+          <h2 className="text-2xl font-bold text-center flex items-center justify-center gap-3 bg-blue-800 p-4 rounded-lg shadow-lg">
+            <LayoutDashboard className="w-7 h-7" />
+            <span className="tracking-wide">Dashboard</span>
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-bold mb-4">Vision</h2>
-            <p>A time-based delivery of results and reports for decision making in humanitarian, development and environmental actions.</p>
-          </div>
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-bold mb-4">Mission</h2>
-            <p>Social Metrics Organization seeks to respond to and disseminate humanitarian, development, and environmental issues based on informed data, assessments, and reports.</p>
-          </div>
-        </div>
+        {/* Navigation Links */}
+        <ul className="space-y-2 relative z-10">
+          {navigationItems.map(({ href, label, icon: Icon }) => (
+            <li key={href}>
+              <Link 
+                href={href}
+                onClick={() => setActiveLink(href)}
+                className={`flex items-center space-x-3 p-4 rounded-lg transition-all duration-200 ${
+                  activeLink === href
+                    ? 'bg-blue-700 shadow-lg transform scale-105'
+                    : 'hover:bg-blue-700/50 hover:shadow-md'
+                }`}
+              >
+                <Icon className={`w-5 h-5 transition-transform duration-200 ${
+                  activeLink === href ? 'scale-110' : ''
+                }`} />
+                <span className="font-medium">{label}</span>
+                {activeLink === href && (
+                  <div className="absolute right-0 w-1 h-8 bg-white rounded-l-full" />
+                )}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-2xl font-bold mb-4">Core Values</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {coreValues.map((value, index) => (
-              <div key={index} className="bg-blue-100 p-3 rounded-lg text-center">
-                {value}
-              </div>
-            ))}
-          </div>
+        {/* Footer Section */}
+        <div className="mt-auto relative z-10 pt-6 border-t border-blue-700">
+          <p className="text-sm text-blue-200 text-center">
+            Social Metrics
+            <br />
+            Organisation
+          </p>
         </div>
+      </nav>
 
-        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-2xl font-bold mb-4">Key Areas of Operation</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <div className="flex items-center mb-2">
-                <ClipboardCopy className="w-6 h-6 mr-2" />
-                <h3 className="text-xl font-bold">Research and Development</h3>
-              </div>
-              <p>Employing systematic qualitative and quantitative research methodologies to establish scientific facts.</p>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <div className="flex items-center mb-2">
-                <Heart className="w-6 h-6 mr-2" />
-                <h3 className="text-xl font-bold">Humanitarian Action</h3>
-              </div>
-              <p>Carry out interventions that alleviate human suffering and empower communities.</p>
-            </div>
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <div className="flex items-center mb-2">
-                <TreePine className="w-6 h-6 mr-2" />
-                <h3 className="text-xl font-bold">Climate Change Reversal</h3>
-              </div>
-              <p>Commitment to environmental sustainability and climate change mitigation.</p>
-            </div>
-          </div>
-        </div>
+      {/* Main Content */}
+      <div className="flex-1 p-8">
+        <header className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-10 px-8 rounded-xl shadow-xl mb-8">
+          <h1 className="text-4xl font-bold mb-3">Social Metrics Organisation</h1>
+          <p className="text-xl text-blue-100">Time-based delivery of results and reports for decision making</p>
+        </header>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-2xl font-bold mb-4">Organizational Capacity</h2>
-          <div className="space-y-4">
-            {capacities.map((capacity, index) => (
-              <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                <div className="flex items-center mb-2">
-                  <Shield className="w-6 h-6 mr-2" />
-                  <h3 className="text-xl font-bold">{capacity.title}</h3>
+        <main className="space-y-8">
+          {/* Core Values Section */}
+          <section className="bg-white rounded-xl shadow-lg p-8">
+            <h2 className="text-2xl font-bold mb-6 text-gray-800">Core Values</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {coreValues.map((value, index) => (
+                <div
+                  key={index}
+                  className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg text-center shadow-md hover:shadow-lg transition-shadow duration-200"
+                >
+                  <span className="text-blue-900 font-medium">{value}</span>
                 </div>
-                <p>{capacity.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </main>
+              ))}
+            </div>
+          </section>
 
-      <footer className="bg-gradient-to-r from-blue-900 to-gray-800 text-white py-6 mt-8">
-        <div className="container mx-auto px-4 text-center">
+          {/* Key Areas Section */}
+          <section className="bg-white rounded-xl shadow-lg p-8">
+            <h2 className="text-2xl font-bold mb-6 text-gray-800">Key Areas of Operation</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {capacities.map((capacity, index) => (
+                <div
+                  key={index}
+                  className="group bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-1"
+                >
+                  <div className="flex items-center mb-3">
+                    <Shield className="w-6 h-6 mr-3 text-blue-600 group-hover:scale-110 transition-transform duration-200" />
+                    <h3 className="text-lg font-bold text-gray-800">{capacity.title}</h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">{capacity.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </main>
+
+        <footer className="mt-8 bg-gradient-to-r from-blue-900 to-blue-800 text-white py-6 px-8 rounded-xl shadow-xl text-center">
           <p>&copy; {new Date().getFullYear()} Social Metrics Organisation. All rights reserved.</p>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   );
 }
