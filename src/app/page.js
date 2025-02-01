@@ -25,7 +25,7 @@ export default function HomePage() {
     { href: '/complaints', label: 'Complaints', icon: FileText },
     { href: '/code_of_conduct', label: 'Code of Conduct', icon: Shield },
     { href: '/safeguarding', label: 'Safeguarding', icon: Heart },
-    { href: '/whistleblowing', label: 'Whistleblowing', icon: TreePine }
+    { href: '/whisteblowing', label: 'Whistleblowing', icon: TreePine }
   ];
 
   return (
