@@ -1,6 +1,6 @@
 "use client";
 import { useState } from 'react';
-import { Shield, AlertCircle, Users, FileText, Check, X } from 'lucide-react';
+import { Shield, Check, X } from 'lucide-react';
 import { Card, CardContent } from "@../../../src/app/components/ui/card";
 
 const SafeguardingPolicy = () => {

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { AlertCircle, FileText, MessageSquare, Shield, Check, X } from 'lucide-react';
+import { AlertCircle,  Shield, Check, X } from 'lucide-react';
 import { Card, CardContent } from "@../../../src/app/components/ui/card";
 
 const ComplaintsPolicy = () => {
