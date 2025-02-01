@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@../../../src/app/components/ui/card";
 
 const tabs = [
   { id: 'introduction', label: 'Introduction' },

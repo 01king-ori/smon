@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, AlertCircle, Shield, Users, FileText } from 'lucide-react';
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@../../../src/app/components/ui/card";
 
 const WhistleblowingPolicy = () => {
   const [expandedSections, setExpandedSections] = useState({});
