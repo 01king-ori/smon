@@ -1,43 +1,23 @@
-import { CopyCircle, Heart, TreePine, Shield } from 'lucide-react'
+import {  Heart, TreePine, Shield, ClipboardCopy } from 'lucide-react';
 
 export default function Home() {
-  const coreValues = ['Integrity', 'Professionalism', 'Respect for diversity', 'Accountability', 'Team work', 'Non-violence', 'Justice']
+  const coreValues = ['Integrity', 'Professionalism', 'Respect for diversity', 'Accountability', 'Team work', 'Non-violence', 'Justice'];
   
   const capacities = [
-    {
-      title: 'Research and development',
-      description: 'Social Metrics Organisation personnel have vast experience designing and employing systematic qualitative and quantitative research methodologies.'
-    },
-    {
-      title: 'Food sovereignty',
-      description: 'Vast practical experience in food independence interventions including sustainable agri-actions via innovative agri-technology.'
-    },
-    {
-      title: 'Peaceful and inclusive society',
-      description: 'Expertise in gender and child protection services in conflict and post conflict countries.'
-    },
-    {
-      title: 'Sustainable environment action',
-      description: 'Well versed in ecological conversation using environmentally safe models (Reduce, Reuse, Recycle).'
-    },
-    {
-      title: 'Business process model',
-      description: 'Well trained on CaLP platforms in cash transfer and voucher programs.'
-    },
-    {
-      title: 'Protection and safeguarding',
-      description: 'Embraces inclusivity and diversity with zero tolerance for sexual abuse and exploitation.'
-    }
-  ]
+    { title: 'Research and development', description: 'Social Metrics Organisation personnel have vast experience designing and employing systematic qualitative and quantitative research methodologies.' },
+    { title: 'Food sovereignty', description: 'Vast practical experience in food independence interventions including sustainable agri-actions via innovative agri-technology.' },
+    { title: 'Peaceful and inclusive society', description: 'Expertise in gender and child protection services in conflict and post-conflict countries.' },
+    { title: 'Sustainable environment action', description: 'Well-versed in ecological conservation using environmentally safe models (Reduce, Reuse, Recycle).' },
+    { title: 'Business process model', description: 'Well trained on CaLP platforms in cash transfer and voucher programs.' },
+    { title: 'Protection and safeguarding', description: 'Embraces inclusivity and diversity with zero tolerance for sexual abuse and exploitation.' }
+  ];
 
   return (
     <div className="min-h-screen bg-gray-100">
       <header className="bg-gradient-to-r from-blue-900 to-gray-800 text-white py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center text-center">
-            <h1 className="text-4xl font-bold mb-4">Social Metrics Organisation</h1>
-            <p className="text-xl">Time-based delivery of results and reports for decision making</p>
-          </div>
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl font-bold mb-4">Social Metrics Organisation</h1>
+          <p className="text-xl">Time-based delivery of results and reports for decision making</p>
         </div>
       </header>
 
@@ -65,7 +45,7 @@ export default function Home() {
           </div>
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-bold mb-4">Mission</h2>
-            <p>Social Metrics Organization seeks to respond to and or disseminate humanitarian, development and environmental issues based on informed data, assessments and reports.</p>
+            <p>Social Metrics Organization seeks to respond to and disseminate humanitarian, development, and environmental issues based on informed data, assessments, and reports.</p>
           </div>
         </div>
 
@@ -85,24 +65,24 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-gray-50 p-4 rounded-lg">
               <div className="flex items-center mb-2">
-                <CopyCircle className="w-6 h-6 mr-2" />
+                <ClipboardCopy className="w-6 h-6 mr-2" />
                 <h3 className="text-xl font-bold">Research and Development</h3>
               </div>
-              <p>Employing systematic qualitative and quantitative research methodologies to establish scientific facts and use research outputs to inform humanitarian, environmental and development objectives.</p>
+              <p>Employing systematic qualitative and quantitative research methodologies to establish scientific facts.</p>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg">
               <div className="flex items-center mb-2">
                 <Heart className="w-6 h-6 mr-2" />
                 <h3 className="text-xl font-bold">Humanitarian Action</h3>
               </div>
-              <p>Carry out interventions that alleviate man-made or nature triggered human suffering, support recovery and empower communities to realize development initiatives.</p>
+              <p>Carry out interventions that alleviate human suffering and empower communities.</p>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg">
               <div className="flex items-center mb-2">
                 <TreePine className="w-6 h-6 mr-2" />
                 <h3 className="text-xl font-bold">Climate Change Reversal</h3>
               </div>
-              <p>Commitment to climate change reversal and healthy environmental for a world fit for fauna and flora on land and in water.</p>
+              <p>Commitment to environmental sustainability and climate change mitigation.</p>
             </div>
           </div>
         </div>
@@ -129,5 +109,5 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
